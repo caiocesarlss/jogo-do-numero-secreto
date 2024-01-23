@@ -46,7 +46,7 @@ function verificarChute() {
         if (chute == numeroSecreto) {
             let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
             let mensagemTentativas = `Você descobriu o número secreto ${numeroSecreto} 
-                com ${tentativas} ${palavraTentativa}`;
+                com ${tentativas} ${palavraTentativa}.`;
             exibirTextoNaTela('h1', 'Parabéns!');
             exibirTextoNaTela('p', mensagemTentativas);
             finalizarJogo();
@@ -71,8 +71,9 @@ function limparCampo() {
 }
 
 function finalizarJogo() {
-    document.querySelector('input').style.display = 'none';
-    document.getElementById('chutar').style.display = 'none';
+    document.querySelector('input').setAttribute('disabled', true);
+    document.getElementById('chutar').setAttribute('disabled', true);
+    document.getElementById('chutar').setAttribute('class', 'container__botao');
     document.getElementById('reiniciar').removeAttribute('disabled');
     document.getElementById('reiniciar').setAttribute('class', 'container__botao habilitado');
 }
@@ -81,8 +82,9 @@ function reiniciarJogo() {
     numeroSecreto = gerarNumeroAleatorio();
     tentativas = 1;
     exibirMensagemInicial();
-    document.querySelector('input').style.display = 'initial';
-    document.getElementById('chutar').style.display = 'initial';
+    document.querySelector('input').removeAttribute('disabled');
+    document.getElementById('chutar').removeAttribute('disabled');
+    document.getElementById('chutar').setAttribute('class', 'container__botao habilitado');
     document.getElementById('reiniciar').setAttribute('disabled', true);
     document.getElementById('reiniciar').setAttribute('class', 'container__botao');
 }
