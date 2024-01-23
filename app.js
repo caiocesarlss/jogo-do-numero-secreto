@@ -1,14 +1,15 @@
 let listaNumerosSorteados = [];
-let numeroLimite = 10;
+let numeroLimite = 100;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
 function gerarNumeroAleatorio() {
-    //return parseInt(Math.random() * numeroLimite + 1);
+    return parseInt(Math.random() * numeroLimite + 1);
+    
+    //utilizar o código abaixo nos casos em que o número limite é um 
+    //valor pequeno e você não quer que o número secreto se repita.
+    
     /*
-    utilizar o código abaixo nos casos em que o número limite é um 
-    valor pequeno e você não quer que o número secreto se repita.
-    */
     let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
     let quantidadeElementosNaLista = listaNumerosSorteados.length;
 
@@ -22,6 +23,7 @@ function gerarNumeroAleatorio() {
         listaNumerosSorteados.push(numeroEscolhido);
         return numeroEscolhido;
     }
+    */
 }
 
 function exibirMensagemInicial() {
@@ -58,7 +60,7 @@ function verificarChute() {
 
         tentativas++;
     } else {
-        alert(`O número deve estar entre 1 e ${numeroLimite}!`);
+        alert(`Você deve escolher um número entre 1 e ${numeroLimite}!`);
     }
 
     limparCampo();
