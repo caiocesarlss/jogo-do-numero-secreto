@@ -1,5 +1,3 @@
-console.log(Math.random() * 3 + 10);
-console.log((Math.random() * 3) + 10);
 let listaNumerosSorteados = [];
 let numeroLimite = 100;
 let numeroSecreto = gerarNumeroAleatorio();
