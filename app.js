@@ -1,10 +1,16 @@
+console.log(Math.random() * 3 + 10);
+console.log((Math.random() * 3) + 10);
 let listaNumerosSorteados = [];
 let numeroLimite = 100;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
+function getNumeroLimite() {
+    return numeroLimite;
+}
+
 function gerarNumeroAleatorio() {
-    return parseInt(Math.random() * numeroLimite + 1);
+    return parseInt(Math.random() * numeroLimite + 10);
     
     //utilizar o código abaixo nos casos em que o número limite é um 
     //valor pequeno e você não quer que o número secreto se repita.
@@ -42,7 +48,7 @@ function exibirTextoNaTela(tag, texto) {
 function verificarChute() {
     let chute = document.querySelector('input').value;
 
-    if (chute > 0 && chute <= numeroLimite) {
+    if (chute >= 1 && chute <= numeroLimite) {
         if (chute == numeroSecreto) {
             let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
             let mensagemTentativas = `Você descobriu o número secreto ${numeroSecreto} 
@@ -52,9 +58,9 @@ function verificarChute() {
             finalizarJogo();
         } else {
             if (chute > numeroSecreto) {
-                exibirTextoNaTela('p', 'O número secreto é menor que ' + chute);
+                exibirTextoNaTela('p', 'O número secreto é menor que ' + Math.trunc(chute));
             } else {
-                exibirTextoNaTela('p', 'O número secreto é maior que ' + chute);
+                exibirTextoNaTela('p', 'O número secreto é maior que ' + Math.trunc(chute));
             }
         }
 
