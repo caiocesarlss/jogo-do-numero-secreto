@@ -3,12 +3,14 @@ let numeroLimite = 100;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
+console.log(numeroSecreto);
+
 function getNumeroLimite() {
     return numeroLimite;
 }
 
 function gerarNumeroAleatorio() {
-    return parseInt(Math.random() * numeroLimite + 10);
+    return parseInt(Math.random() * numeroLimite + 1);
     
     //utilizar o código abaixo nos casos em que o número limite é um 
     //valor pequeno e você não quer que o número secreto se repita.
